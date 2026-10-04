@@ -11,3 +11,12 @@ def read_entries(file_name):
     with open(file_name, "r") as file:
         lines = file.readlines()
         return lines
+
+
+# Check to make sure diary entry actually exists before read
+def file_exists(file_name):
+    try:
+        with open(file_name, "r"):
+            return True
+    except FileNotFoundError:
+        return False

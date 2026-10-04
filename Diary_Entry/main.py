@@ -7,7 +7,10 @@ def main():
     while True:
         print("\n1. Add an entry")
         print("2. Print all entries")
-        print("3. Quit")
+        print("3. Filter entries by date")
+        print("4. Choose diary file")
+        print("5. Create a new diary file")
+        print("6. Quit")
         choice = input("Choose an option: ")
         if choice == "1":
             date = input("Date (DD/MMM/YYYY): ")
@@ -22,7 +25,26 @@ def main():
                     print(clean_entry)
             else:
                 print("No diary file found yet. Add an entry first")
-        elif choice == "3":
+        elif choice == "4":
+            new_file = input("Diary file name: ").strip()
+            if new_file == "":
+                print("No file name entered. Keeping the current diary.")
+            elif diary.file_exists(new_file):
+                diary_file = new_file
+                print(f"Loaded {diary_file}.")
+            else:
+                print(f"\n{new_file} doesn't exist. Choose option 5 to create a new file.")
+        elif choice == "5":
+            new_file = input("New diary file name: ").strip()
+            if new_file == "":
+                print("No file name entered. Keeping the current diary.")
+            elif diary.file_exists(new_file):
+                print(f"\n{new_file} already exists. Use option 4 to load it.")
+            else:
+                diary.create_diary(new_file)
+                diary_file = new_file
+                print(f"Created and loaded {diary_file}.")
+        elif choice == "6":
             break
         else:
             print("\nInvalid choice. Please enter 1, 2, or 3.")
