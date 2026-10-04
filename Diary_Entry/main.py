@@ -1,11 +1,16 @@
 import diary
 
+# Defining the main function of the program, entries, and files
 def main():
+    diary_file = "diary.txt"
     print("Welcome to your Diary!")
-    diary.add_entry("01/JAN/2026", "  Lunch  ")
-    entries = diary.read_entries()
+    date = input("Date (DD/MMM/YYYY): ")
+    text = input("Entry: ")
+    diary.add_entry(diary_file, date, text)
+    entries = diary.read_entries(diary_file)
     for entry in entries:
-        print(entry)
+        clean_entry = entry.strip()
+        print(clean_entry)
     
 
 
