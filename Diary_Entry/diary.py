@@ -20,3 +20,20 @@ def file_exists(file_name):
             return True
     except FileNotFoundError:
         return False
+
+
+# Creating a new diary entry
+def create_diary(file_name):
+    with open (file_name, "a"):
+        pass
+
+
+# For filtering entries
+def filter_entries(file_name, date):
+    clean_date = date.strip().title()
+    matches = []
+    for line in read_entries(file_name):
+        entry_date, text = line.strip().split(": ", 1)
+        if entry_date == clean_date:
+            matches.append(line.strip())
+    return matches

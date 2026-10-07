@@ -8,7 +8,7 @@ def main():
         print("\n1. Add an entry")
         print("2. Print all entries")
         print("3. Filter entries by date")
-        print("4. Choose diary file")
+        print("4. Choose existing diary file")
         print("5. Create a new diary file")
         print("6. Quit")
         choice = input("Choose an option: ")
@@ -25,6 +25,14 @@ def main():
                     print(clean_entry)
             else:
                 print("No diary file found yet. Add an entry first")
+        elif choice == "3":
+            search_date = input("Date to search for (DD/MMM/YYYY): ")
+            matches = diary.filter_entries(diary_file, search_date)
+            if matches:
+                    for match in matches:
+                        print(match)
+            else:
+                print("\nNo entries found for that date.")
         elif choice == "4":
             new_file = input("Diary file name: ").strip()
             if new_file == "":
@@ -47,18 +55,7 @@ def main():
         elif choice == "6":
             break
         else:
-            print("\nInvalid choice. Please enter 1, 2, or 3.")
-
-# Save for later
-    # date = input("Date (DD/MMM/YYYY): ")
-    # text = input("Entry: ")
-    # diary.add_entry(diary_file, date, text)
-    # entries = diary.read_entries(diary_file)
-    # for entry in entries:
-        # clean_entry = entry.strip()
-        # print(clean_entry)
-    
-
+            print("\nInvalid choice. Please choose another option.")
 
 
 if __name__ == "__main__":
