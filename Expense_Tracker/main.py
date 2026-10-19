@@ -16,9 +16,11 @@ def expense_tracker():
         choice = input("\nChoose an option: ")
         if choice == "1":
             break
-        else:
+        elif choice == "5":
             print("\nHave a good day!")
             break
+        else:
+            print("\nInvalid choice. Please choose another option.")
 
 
 
