@@ -1,14 +1,17 @@
+import tracker
+
 ### Menu Items ###
 menu_options = (
-    "List Available Expense Reports",
-    "Make New Expense Report",
-    "Choose Expense Report to Modify",
-    "View Expense Report",
+    "Create New Expense Report",
+    "Modify Expense Report",
+    "List Expense Report(s)",
+    "Filter Expense Reports",
     "Quit"
 )
+
 ### Prints User Options ###
-def expense_tracker():
-    print("Expense Tracker Options:")
+def main():
+    print("\nExpense Tracker Options:")
     while True:
         print()
         for number, option in enumerate(menu_options, start=1):
@@ -28,4 +31,4 @@ def expense_tracker():
 
 
 if __name__ == "__main__":
-    expense_tracker()
+    main()
