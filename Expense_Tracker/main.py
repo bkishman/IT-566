@@ -4,8 +4,7 @@ import tracker
 menu_options = (
     "Create New Expense Report",
     "Modify Expense Report",
-    "List Expense Report(s)",
-    "Filter Expense Reports",
+    "List Expense Reports",
     "Quit"
 )
 
@@ -19,7 +18,7 @@ def main():
         choice = input("\nChoose an option: ")
         if choice == "1":
             break
-        elif choice == "5":
+        elif choice == "4":
             print("\nHave a good day!")
             break
         else:

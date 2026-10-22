@@ -8,3 +8,9 @@ class Expense_Report:
 
 #Function for creating an expense JSON to work in
 def create_file():
+
+#Function for selecting/modifying reports
+def modify_file():
+
+#Function for listing available reports -- list all, or by date range
+def list_files():
