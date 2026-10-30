@@ -3,7 +3,6 @@ import csv
 
 ### Expense Tracker Primary Functions ###
 
-
 #Class definition for Expense Report
 class ExpenseReport:
     def __init__(self, number, date):
@@ -32,6 +31,30 @@ class ExpenseReport:
         with open(filename, "w") as file:
             json.dump(data, file, indent=4)
         return filename
+
+#Function for exporting to CSV
+    def export_csv(self):
+        filename = f"expense_report_{self.number}.csv"
+        with open(filename, "w", newlines="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["date", "expense_category", "amount", "description"])
+            for expense in self.expenses:
+                writer.writerow([
+                    expense["date"],
+                    expense["expense_category"],
+                    expense["amount"],
+                    expense["description"],
+                ])
+        return filename
+
+#Function to open a JSON as CSV
+    def load_file(filename):
+        with open(filename, "r") as file:
+            data = json.load(file)
+        report = ExpenseReport(data["number"], data["date"])
+        report.expenses = data["expenses"]
+        return report
+
 
 #Function for selecting/modifying reports
 #def modify_file():

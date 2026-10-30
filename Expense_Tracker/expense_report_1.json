@@ -1,12 +1,12 @@
 {
     "number": "1",
-    "date": "2026-08-01",
+    "date": "2026-01-01",
     "expenses": [
         {
-            "date": "2026-07-01",
-            "expense_category": "rental",
-            "amount": 500.75,
-            "description": "rental car"
+            "date": "2025-12-31",
+            "expense_category": "xmas",
+            "amount": 500.25,
+            "description": "comment"
         }
     ]
 }

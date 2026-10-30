@@ -5,6 +5,7 @@ menu_options = (
     "Add Expense Report",
     "Modify Expense Report",
     "List Expense Reports",
+    "Export Report to CSV",
     "Quit"
 )
 
@@ -37,9 +38,26 @@ def main():
             filename = report.save_file()
             print(f"\nReport {report.number} saved to {filename}")
         elif choice == "4":
+            if not reports:
+                ###TYPE ERROR?###
+                print("\nNo reports to export. Add a report first.")
+            else:
+                export_number = input("\nEnter report number to export: ")
+                found = False
+                for report in reports:
+                    if report.number == report.export:
+                        filename = report.export_csv()
+                        print(f"\nReport {report.number} exported to {filename}")
+                        found = True
+                        break
+                if not found:
+                    ###TYPE ERROR?###
+                    print("\nReport not found.")
+        elif choice == "6":
             print("\nHave a fine Navy day!")
             break
         else:
+            ###TYPE ERROR?###
             print("\nInvalid choice. Please choose another option.")
 
 
