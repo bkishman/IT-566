@@ -2,6 +2,7 @@ import diary
 
 # Defining the main function of the program, entries, and files
 def main():
+    #MAKE A DICTIONARY HERE, key value pair?? dictionary.items()
     diary_file = "diary.txt"
     print("Welcome to your Diary!")
     while True:

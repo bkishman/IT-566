@@ -28,7 +28,7 @@ def create_diary(file_name):
         pass
 
 
-# For filtering entries
+# For filtering entries - uses same format as above for filename/date, 
 def filter_entries(file_name, date):
     clean_date = date.strip().title()
     matches = []
