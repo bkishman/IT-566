@@ -1,0 +1,12 @@
+{
+    "number": "234",
+    "date": "234",
+    "expenses": [
+        {
+            "date": "23423",
+            "expense_category": "asdf",
+            "amount": 2342.0,
+            "description": "asdfasd"
+        }
+    ]
+}
