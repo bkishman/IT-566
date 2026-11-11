@@ -1,5 +1,7 @@
 import sys
 from pathlib import Path
+import os
+import glob
 
 #added to pull tracker and gui from sibling folders
 SRC = Path(__file__).resolve().parent.parent
@@ -13,12 +15,15 @@ import gui_interface
 ### Runs Options from GUI ###
 def main():
     reports = []
+    for file_name in glob.glob("expense_report_*.json"):
+        reports.append(tracker.load_file(file_name))
+
     print("\nHooyah, Shipmate! Thanks for using the N1 Department Expense Tracker. Here are your options:")
 
     while True:
         choice = gui_interface.show_menu()
 
-
+        #Function for adding a new report
         if choice == "1":
             report_number = input("\nEnter report number: ")
             report_date = input("Enter report date (YYYY-MM-DD): ")
@@ -39,13 +44,12 @@ def main():
             filename = report.save_file()
             print(f"\nReport {report.number} saved to {filename}")
 
+        #Function for filtering reports    
         elif choice == "2":
-            print("\nNOT AVAILABLE")
-            
-        elif choice == "3":
             if not reports:
-                print("\nLeave a filter blank to skip it.")
+                print("\nNo reports available. Add a report first.")
             else:
+                print("\nLeave a filter blank to skip it.")
                 start_date = input("Start date (YYYY-MM-DD): ")
                 end_date = input("End date (YYYY-MM-DD): ")
                 category = input("Category: ")
@@ -56,11 +60,11 @@ def main():
                     for expense in matches:
                         print(f"Report {report.number} | {expense['date']} | {expense['expense_category']} | ${expense['amount']:.2f} | {expense['description']}")
                         match_count += 1
-
                 if match_count == 0:
                     print("\nNo expenses matched.")
 
-        elif choice == "4":
+        #Function for exporting to CSV
+        elif choice == "3":
             if not reports:
                 print("\nNo reports to export. Add a report first.")
             else:
@@ -75,15 +79,17 @@ def main():
                 if not found:
                     print("\nReport not found.")
 
+        #Function for opening JSON file
+        elif choice == "4":
+            report_number = input("Enter report number to open: ")
+            file_name = f"expense_report_{report_number}.json"
+            if os.path.exists(file_name):
+                os.startfile(file_name)
+            else:
+                print("File not found.")
+
+        #Exit program        
         elif choice == "5":
-            filename = input("\nEnter the file name to open.")
-            try:
-                report = tracker.load_file(filename)
-                reports.append(report)
-                print(f"\nReport {report.number} loaded with {len(report.expenses)} expense(s).")
-            except FileNotFoundError:
-                print("\nFile not found.")
-        elif choice == "6":
             print("\nHave a fine Navy day!")
             break
         else:

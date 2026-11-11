@@ -3,8 +3,7 @@
 ### Menu Items ###
 menu_options = (
     "Add Expense Report",
-    "Modify Expense Report",
-    "List Expense Reports",
+    "Filter Expense Reports",
     "Export Report to CSV",
     "Open Expense Report",
     "Quit"

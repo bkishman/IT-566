@@ -1,0 +1,18 @@
+{
+    "number": "45",
+    "date": "2026-11-11",
+    "expenses": [
+        {
+            "date": "2026-12-05",
+            "expense_category": "Holiday Party (Projected)",
+            "amount": 813.75,
+            "description": "Liquor budget"
+        },
+        {
+            "date": "2026-12-31",
+            "expense_category": "New Year's Party (Projected)",
+            "amount": 1500.0,
+            "description": "Skipper's DUI money"
+        }
+    ]
+}

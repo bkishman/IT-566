@@ -68,9 +68,3 @@ def load_file(filename):
     report = ExpenseReport(data["number"], data["date"])
     report.expenses = data["expenses"]
     return report
-
-#Function for selecting/modifying reports
-#def modify_file():
-
-#Function for listing available reports -- list all, or by date range
-#def list_files():
