@@ -6,9 +6,7 @@
 # 3) Better directory structure
 
 def main():
-    while True:
-        print("\nAll gravy - stay Navy, baby")
-        break
+    print("\nAll gravy - stay Navy, baby")
 
 if __name__ == "__main__":
     main()
