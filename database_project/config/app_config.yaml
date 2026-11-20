@@ -1,0 +1,19 @@
+#YAML Configuration File or Expenses App
+
+meta:
+  app_name: Expenses
+  developer: Ben Kishman
+  version: 1.0b
+db:
+  connection:
+    host: localhost
+    port: 3306
+    database: Expenses
+    user: expenses_user
+    password: P@$$w0rd
+  pool:
+    pool_name: expenses_db_pool
+    pool_size: 5    # Default
+    pool_reset_session: True
+    connection_timeout: 5   # Seconds
+    autocommit: False

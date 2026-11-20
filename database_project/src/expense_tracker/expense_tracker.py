@@ -61,7 +61,8 @@ def load_all_reports():
         reports.append(load_file(filename))
     return reports
 
-#Primary run function. Calls user_interface menu options.
+###Primary run function. Calls user_interface menu options, called by main.py.###
+
 def run():
     user_interface.show_message("\nHooyah, Shipmate! Thanks for using the N1 Department Expense Tracker. Here are your options:")
     reports = load_all_reports()
