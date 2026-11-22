@@ -4,6 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+pyyaml = "*"
+mysql-connector-python = "*"
 
 [dev-packages]
 
